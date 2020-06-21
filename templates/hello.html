@@ -6,9 +6,7 @@
 <body>
 <h3>{{ data.title }}</h3>
 
-МУ-н УИХ сонгох 2020 оны сонгуулийн таавар
-
-<br><br>
+<br>
 <form action="/hello">
   <label for="username">Таны нэр: </label>
   <input type="text" id="username" name="username"><br><br>
@@ -23,10 +21,20 @@
 
   <input type="submit" value="Нэвтрэх"/>
 </form>
-<br><br>
+<br>
 
+Заавар:
+<ul>
+  <li>Улс төрийн хүчний авах суудлыг мандатын тоонд тааруулан бөглөнө.</li>
+  <li>Тааварт дахин оролцох боломжгүй.</li>
+</ul>
+
+<hr>
+
+Тааврын үр дүнг сонирхоё
+<br>
+<br>
 <form action="/results">
-  <label for="results">Тааврын үр дүнг сонирхоё</label><br>
   <label for="results">Улаанбаатар -> </label>
   <input type="submit" name="region" value="ub"/><br><br>
   <label for="results">Улс даяар -> </label>
