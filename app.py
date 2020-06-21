@@ -143,7 +143,7 @@ def poll():
     # data: contains results
     # parties: dict obj with party indices
     # party_idx: dict obj with party full and short names
-    return render_template('results.html', data=results_data, parties = first_value, party_idx=party_registry['index'])
+    return render_template('results.html', data=results_data, header = first_value, party_idx=party_registry['index'], party=candidate_registry[region]['parties'])
 
 @app.route('/results')
 def show_results():
@@ -169,7 +169,7 @@ def show_results():
     # data: contains results
     # parties: dict obj with party indices
     # party_idx: dict obj with party full and short names
-    return render_template('results.html', data=results_data, parties = first_value, party_idx=party_registry['index'])
+    return render_template('results.html', data=results_data, header = first_value, party_idx=party_registry['index'], party=candidate_registry[region]['parties'])
 
 if __name__ == "__main__":
     app.run(debug=True)

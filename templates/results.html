@@ -26,8 +26,8 @@ tr:nth-child(odd) {
   <caption>{{ data.title }}, {{ data.region }}</caption>
   <tr>
     <th>Нэрс </th>
-    {% for p in parties %}
-    <th>{{ party_idx[p].short }}</th>
+    {% for p in header %}
+    <th>{{ party_idx[p].short }} {{ party[party_idx[p].name].person }}</th>
     {% endfor %}
   </tr>
 
