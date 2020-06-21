@@ -83,9 +83,10 @@ def hello():
     if username == '':
         return render_template('error_username.html', data=poll_data)
 
-    results = {}    
-    with open(results_filenames[region], 'r') as f:
-        results = json.load(f)
+    results = {}
+    if not os.path.exists(results_filenames[region]):
+        with open(results_filenames[region], 'r') as f:
+            results = json.load(f)
 
     if username in results:
         poll_data['username'] = username
@@ -161,9 +162,14 @@ def show_results():
     region = request.args['region']
 
     # get results
-    results = {}    
+    results = {}
+
     with open(results_filenames[region], 'r') as f:
-        results = json.load(f)
+        context = f.read()
+        if context == '':
+            return render_template('error_noresult.html', data=poll_data)        
+        else:
+            results = json.loads(context)
 
     # show results
     results_data = {}
