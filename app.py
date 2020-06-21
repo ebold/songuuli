@@ -78,11 +78,21 @@ def root():
 @app.route('/hello')
 def hello():
 
-    if request.args['username'] == '':
+    username = request.args['username']
+    region = request.args.get('region')
+    if username == '':
         return render_template('error_username.html', data=poll_data)
 
-    poll_data['username'] = request.args.get('username')[:20]
-    poll_data['region'] = request.args.get('region')
+    results = {}    
+    with open(results_filenames[region], 'r') as f:
+        results = json.load(f)
+
+    if username in results:
+        poll_data['username'] = username
+        return render_template('error_duplicate_username.html', data=poll_data)
+
+    poll_data['username'] = username
+    poll_data['region'] = region
 
     region = request.args['region']
     poll_data['mandates'] = candidate_registry[region]['mandates']
