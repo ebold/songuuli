@@ -27,7 +27,7 @@ tr:nth-child(odd) {
   <tr>
     <th>Нэрс </th>
     {% for p in header %}
-    <th>{{ party_idx[p].short }} {{ party[party_idx[p].name].person }}</th>
+    <th>{{ party_reg.index[p].short }} {{ party[party_reg.index[p].name].person }}</th>
     {% endfor %}
   </tr>
 
@@ -61,7 +61,7 @@ tr:nth-child(odd) {
 
   {% for p in party %}
   <tr>
-    <td>{{ p }}</td>
+    <td>{{ p }} ({{ party_reg.name[p].short }})</td>
     <td>{{ party[p].person }}</td>
     <td>{{ party[p].capital }}</td>
   </tr>
