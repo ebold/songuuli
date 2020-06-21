@@ -49,5 +49,24 @@ tr:nth-child(odd) {
   <input type="submit" value="энд дар" />
 </form>
 
+<hr>
+
+<table>
+  <caption>Хүн, хөрөнгийн нөөц, {{ data.region }}</caption>
+  <tr>
+    <th>Улс төрийн хүчин</th>
+    <th>Дэвшигч</th>
+    <th>Хөрөнгө (мян. төг)</th>
+  </tr>
+
+  {% for p in party %}
+  <tr>
+    <td>{{ p }}</td>
+    <td>{{ party[p].person }}</td>
+    <td>{{ party[p].capital }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
 </body>
 </html>
