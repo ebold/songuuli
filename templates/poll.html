@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ data.question }}</title>
+</head>
+<body>
+<h1>{{ data.question }}</h1>
+<h3> Тaны нэр: {{ data.username  }}</h3>
+<h3> Тааврын төрөл: {{ data.region }}</h3>
+<h3> Мандатын тоо: {{ data.mandates }}</h3>
+<form action="/poll">
+  {% for e in data.parties %}
+    <label for="votes"> {{ e }}  ({{ data.parties[e].person }}) </label>
+    <input type="number" id="prty{{ party[e].idx }}" name="prty{{ party[e].idx }}" min="0" max="{{ data.parties[e].limit }}"><br><br>
+  {% endfor %}
+     <input type="hidden" name="mandates" value="{{ data.mandates }}">
+     <input type="hidden" name="region" value="{{ data.region }}">
+     <input type="hidden" name="username" value="{{ data.username }}"><br>
+  <input type="submit" value="Илгээх" />
+</form>
+</body>
+</html>

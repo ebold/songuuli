@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Songuuli 2020</title>
+</head>
+<body>
+<h3>{{ data.title }}</h3>
+
+МУ-н УИХ сонгох 2020 оны сонгуулийн таавар
+
+<br><br>
+<form action="/hello">
+  <label for="username">Таны нэр: </label>
+  <input type="text" id="username" name="username"><br><br>
+
+  <label for="comment">Тааврын төрөл: </label><br>
+
+  <input type="radio" id="ub" name="region" value="ub" checked>
+  <label for="ub">Улаанбаатар</label><br>
+
+  <input type="radio" id="mn" name="region" value="mn">
+  <label for="mn">улс даяар</label><br><br>
+
+  <input type="submit" value="Нэвтрэх"/>
+</form>
+<br><br>
+
+<form action="/results">
+  <label for="results">Тааврын үр дүнг сонирхоё</label><br>
+  <label for="results">Улаанбаатар -> </label>
+  <input type="submit" name="region" value="ub"/><br><br>
+  <label for="results">Улс даяар -> </label>
+  <input type="submit" name="region" value="mn"/>
+</form>
+</body>
+</html>

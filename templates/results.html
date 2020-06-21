@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<title>{{ data.title }}</title>
+
+<style>
+table {
+  width: 100%;
+}
+
+td, th {
+  text-align: center;
+  padding: 2px;
+}
+
+tr:nth-child(odd) {
+  background-color: #dddddd;
+}
+</style>
+
+</head>
+<body>
+<h1>Үр дүн</h1>
+
+<table>
+  <caption>{{ data.title }}, {{ data.region }}</caption>
+  <tr>
+    <th>Нэрс </th>
+    {% for p in parties %}
+    <th>{{ party_idx[p].short }}</th>
+    {% endfor %}
+  </tr>
+
+  {% for u in data.results %}
+  <tr>
+    <td>{{ u }}</td>
+    {% for e in data.results[u] %}
+      <td>{{ data.results[u][e] }}</td>
+    {% endfor %}
+
+  </tr>
+  {% endfor %}
+</table>
+
+<br>
+
+<form action="/">
+  <label for="root">Шинээр эхлэх -> </label>
+  <input type="submit" value="энд дар" />
+</form>
+
+</body>
+</html>
